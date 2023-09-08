@@ -7,6 +7,7 @@ import { PointTable } from './points/PointTable';
 import { SwipperHighlight } from './highlights/SwipperHighlight';
 import { SwipperResult } from './results/SwipperResult';
 import { Rank } from './ranks/Rank';
+import { PlayerOfWeek } from './player-of-weeks/PlayerOfWeek';
 
 export const Home = () => {
   return (
@@ -47,6 +48,7 @@ export const Home = () => {
           <Stack gap={3}>
             <PointTable />
             <Rank />
+            <PlayerOfWeek />
           </Stack>
         </Grid>
       </Grid>

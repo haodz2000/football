@@ -1,7 +1,7 @@
 'use client';
 import { Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import { Colors } from '../../theme/Colors';
 import Link from '../../ui/Link';
@@ -9,6 +9,9 @@ import Link from '../../ui/Link';
 const date = new Date();
 
 export const FeedLarge = () => {
+  const [isHovering, setIsHovered] = useState(false);
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
   return (
     <Stack
       component={Link}
@@ -20,15 +23,33 @@ export const FeedLarge = () => {
       position={'relative'}
       borderRadius={3}
       justifyContent={'flex-end'}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      boxSizing={'border-box'}
     >
-      <Image
-        src={
-          'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
-        }
-        alt="feed"
-        fill
-        unoptimized
-      />
+      {isHovering ? (
+        <Image
+          src={
+            'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
+          }
+          alt="feed"
+          fill
+          unoptimized
+          style={{
+            transform: 'scale(1.01)',
+            transition: 'all .3s ease-in-out',
+          }}
+        />
+      ) : (
+        <Image
+          src={
+            'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
+          }
+          alt="feed"
+          fill
+          unoptimized
+        />
+      )}
       <Stack zIndex={1} width={1} paddingX={8} height={143} gap={2}>
         <Stack flexDirection="row" alignItems="center" gap={1}>
           <EventAvailableIcon htmlColor={Colors.yellow} />

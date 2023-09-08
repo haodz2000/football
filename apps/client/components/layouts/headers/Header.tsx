@@ -6,7 +6,7 @@ import {
   IconButton,
   useMediaQuery,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Colors } from '../../theme/Colors';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import FacebookIcon from '@mui/icons-material/Facebook';

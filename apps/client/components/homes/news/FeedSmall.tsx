@@ -1,7 +1,7 @@
 'use client';
-import { Stack, StackProps, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import { Colors } from '../../theme/Colors';
 import Link from '../../ui/Link';
@@ -9,6 +9,9 @@ import Link from '../../ui/Link';
 const date = new Date();
 
 export const FeedSmall = () => {
+  const [isHovering, setIsHovered] = useState<boolean>(false);
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
   return (
     <Stack
       component={Link}
@@ -19,23 +22,32 @@ export const FeedSmall = () => {
       position={'relative'}
       borderRadius={3}
       justifyContent={'flex-end'}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
-      <Image
-        src={
-          'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
-        }
-        alt="feed"
-        fill
-        unoptimized
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          borderRadius: 3,
-        }}
-      />
+      {isHovering ? (
+        <Image
+          src={
+            'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
+          }
+          alt="feed"
+          fill
+          unoptimized
+          style={{
+            transform: 'scale(1.02)',
+            transition: 'all .3s ease-in-out',
+          }}
+        />
+      ) : (
+        <Image
+          src={
+            'https://rstheme.com/products/wordpress/khelo/wp-content/uploads/2020/11/1-980x500.jpg'
+          }
+          alt="feed"
+          fill
+          unoptimized
+        />
+      )}
       <Stack zIndex={1} width={1} paddingX={4} height={100} gap={1}>
         <Stack flexDirection="row" alignItems="center" gap={1}>
           <EventAvailableIcon htmlColor={Colors.yellow} />
