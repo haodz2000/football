@@ -6,6 +6,7 @@ import { TableListMatchs } from './schedules/TableListMatchs';
 import { PointTable } from './points/PointTable';
 import { SwipperHighlight } from './highlights/SwipperHighlight';
 import { SwipperResult } from './results/SwipperResult';
+import { Rank } from './ranks/Rank';
 
 export const Home = () => {
   return (
@@ -45,6 +46,7 @@ export const Home = () => {
         <Grid item xs={12} md={3} lg={3}>
           <Stack gap={3}>
             <PointTable />
+            <Rank />
           </Stack>
         </Grid>
       </Grid>

@@ -6,7 +6,7 @@ import {
   IconButton,
   useMediaQuery,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Colors } from '../../theme/Colors';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -21,9 +21,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import theme from '../../theme/theme';
 import { Size } from '../../theme/Size';
 
+const date = new Date();
 export const Header = () => {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
-  const [date] = useState<Date>(new Date());
   return (
     <Stack width={1}>
       <Stack

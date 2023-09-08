@@ -1,13 +1,14 @@
 'use client';
 import { Stack, StackProps, Typography } from '@mui/material';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import { Colors } from '../../theme/Colors';
 import Link from '../../ui/Link';
 
+const date = new Date();
+
 export const FeedSmall = () => {
-  const [date] = useState<Date>(new Date());
   return (
     <Stack
       component={Link}
@@ -39,7 +40,7 @@ export const FeedSmall = () => {
         <Stack flexDirection="row" alignItems="center" gap={1}>
           <EventAvailableIcon htmlColor={Colors.yellow} />
           <Typography fontWeight={600} variant="body2" color={Colors.yellow}>
-            {date.toUTCString()}
+            {date.toDateString()}
           </Typography>
         </Stack>
         <Stack>

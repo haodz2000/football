@@ -1,13 +1,14 @@
 'use client';
 import { Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import { Colors } from '../../theme/Colors';
 import Link from '../../ui/Link';
 
+const date = new Date();
+
 export const FeedLarge = () => {
-  const [date] = useState<Date>(new Date());
   return (
     <Stack
       component={Link}
@@ -27,20 +28,12 @@ export const FeedLarge = () => {
         alt="feed"
         fill
         unoptimized
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          borderRadius: 3,
-        }}
       />
       <Stack zIndex={1} width={1} paddingX={8} height={143} gap={2}>
         <Stack flexDirection="row" alignItems="center" gap={1}>
           <EventAvailableIcon htmlColor={Colors.yellow} />
           <Typography fontWeight={600} variant="body2" color={Colors.yellow}>
-            {date.toUTCString()}
+            {date.toDateString()}
           </Typography>
         </Stack>
         <Stack>

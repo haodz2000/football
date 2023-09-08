@@ -1,8 +1,15 @@
+'use client';
 import { Button, Stack, Typography } from '@mui/material';
 import React from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Colors } from '../../theme/Colors';
 import { Highlight } from './Highlight';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 export const SwipperHighlight = () => {
   return (
@@ -29,7 +36,30 @@ export const SwipperHighlight = () => {
         }}
         borderRadius={1}
       >
-        <Highlight />
+        <Stack width={1} position="relative">
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            style={{ width: '99%' }}
+            slidesPerView={1}
+            spaceBetween={30}
+            centeredSlides={true}
+            pagination
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+          >
+            <SwiperSlide>
+              <Highlight />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Highlight />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Highlight />
+            </SwiperSlide>
+          </Swiper>
+        </Stack>
         <Stack
           flexDirection={'row'}
           alignItems="center"

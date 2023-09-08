@@ -39,12 +39,12 @@ export const SwipperResult = () => {
         <Stack width={1} position={'relative'}>
           <Swiper
             modules={[Autoplay]}
-            style={{width: '99%'}}
+            style={{ width: '99%' }}
             slidesPerView={1}
             spaceBetween={30}
             centeredSlides={true}
             autoplay={{
-              delay: 2500,
+              delay: 5000,
               disableOnInteraction: false,
             }}
           >
