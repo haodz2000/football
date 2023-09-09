@@ -19,10 +19,12 @@ import Link from '../../ui/Link';
 import { ListMenu } from './ListMenu';
 import MenuIcon from '@mui/icons-material/Menu';
 import theme from '../../theme/theme';
-import { Size } from '../../theme/Size';
 
 const date = new Date();
-export const Header = () => {
+interface Props {
+  maxWidth: number;
+}
+export const Header = ({ maxWidth }: Props) => {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <Stack width={1}>
@@ -34,7 +36,7 @@ export const Header = () => {
         boxShadow={'border-box'}
         padding={2}
       >
-        <Stack width={1} maxWidth={Size.maxWith} margin="0 auto">
+        <Stack width={1} maxWidth={maxWidth} margin="0 auto">
           <Grid container>
             <Grid item xs={12} md={6}>
               <Stack flexDirection="row" alignItems="center" gap={1}>
@@ -75,7 +77,7 @@ export const Header = () => {
         justifyContent="center"
         padding={2}
       >
-        <Stack width={1} maxWidth={Size.maxWith} margin="0 auto">
+        <Stack width={1} maxWidth={maxWidth} margin="0 auto">
           <Grid container width={1}>
             <Grid item xs={9} md={2}>
               <Stack width={1}>

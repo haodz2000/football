@@ -1,5 +1,5 @@
 'use client';
-import { Grid, Link, Stack, Typography } from '@mui/material';
+import { Grid, Link, Stack, StackProps, Typography } from '@mui/material';
 import React from 'react';
 import { Colors } from '../theme/Colors';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -74,13 +74,16 @@ const sponsers: Sponser[] = [
   },
 ];
 
-export const Footer = () => {
+interface Props extends StackProps {
+  maxWidth: number;
+}
+export const Footer = ({ maxWidth, ...props }: Props) => {
   return (
-    <Stack width={1} height={Size.footer}>
+    <Stack width={1} height={Size.footer} {...props}>
       <Stack px={2} width={1} bgcolor={Colors.secondBackground}>
         <Stack
           width={1}
-          maxWidth={Size.maxWith}
+          maxWidth={maxWidth}
           margin="0 auto"
           height={355}
           justifyContent={'center'}
@@ -129,7 +132,7 @@ export const Footer = () => {
         <Stack
           margin="0 auto"
           width={1}
-          maxWidth={Size.maxWith}
+          maxWidth={maxWidth}
           height={60}
           bgcolor={Colors.background}
           flexDirection="row"

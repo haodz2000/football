@@ -1,13 +1,20 @@
 'use client';
 import { Stack, IconButton } from '@mui/material';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { Header } from './headers/Header';
+import React, {
+  PropsWithChildren,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import { Footer } from './Footer';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Colors } from '../theme/Colors';
-import { Size } from '../theme/Size';
 
-export const AppLayout = ({ children }: PropsWithChildren) => {
+interface Props extends PropsWithChildren {
+  header: ReactNode;
+  maxWidth: number;
+}
+export const AppLayout = ({ maxWidth, header, children }: Props) => {
   const [scroll, setScroll] = useState<boolean>(false);
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -36,16 +43,16 @@ export const AppLayout = ({ children }: PropsWithChildren) => {
       }}
       position={'relative'}
     >
-      <Header />
+      {header}
       <Stack
         width={1}
-        maxWidth={Size.maxWith}
+        maxWidth={maxWidth}
         margin="0 auto"
         minHeight={'calc(100vh - 132px - 415px)'}
       >
         {children}
       </Stack>
-      <Footer />
+      <Footer maxWidth={maxWidth} />
       {scroll && (
         <Stack flexDirection={'row'} position={'fixed'} right={5} bottom={15}>
           <IconButton sx={{ bgcolor: Colors.yellow }} onClick={handleTop}>
