@@ -9,9 +9,7 @@ export default async function Index() {
       maxWidth={Size.maxWidth}
       header={<Header maxWidth={Size.maxWidth} />}
     >
-      <Stack width={1}>
-        Slug
-      </Stack>
+      <Stack width={1}>Slug</Stack>
     </AppLayout>
   );
 }
