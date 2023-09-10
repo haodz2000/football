@@ -51,11 +51,11 @@ export const ListMenu = () => {
       gap={1}
     >
       {menu.map((item, index) => (
-        <Link
+        <Typography
           key={index}
           href={item.href}
           underline="none"
-          component={Typography}
+          component={Link}
           sx={{
             color: Colors.white,
             '&:hover, &.active': {
@@ -67,7 +67,7 @@ export const ListMenu = () => {
           padding={2}
         >
           {item.title}
-        </Link>
+        </Typography>
       ))}
     </Stack>
   );
